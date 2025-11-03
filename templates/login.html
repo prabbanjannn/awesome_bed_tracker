@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-5">
+                        <h3 class="card-title text-center mb-4 fw-light text-teal">Welcome, Caregiver</h3>
+                        <form method="post">
+                            <div class="mb-3 position-relative">
+                                <label class="form-label text-muted">Username</label>
+                                <input type="text" name="username" class="form-control rounded-pill" required>
+                                <span class="tooltip-icon" data-bs-toggle="tooltip" title="Enter your admin username for secure access.">?</span>
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <label class="form-label text-muted">Password</label>
+                                <input type="password" name="password" class="form-control rounded-pill" required>
+                                <span class="tooltip-icon" data-bs-toggle="tooltip" title="Keep it safe—your key to helping others.">?</span>
+                            </div>
+                            <button type="submit" class="btn btn-teal w-100 rounded-pill ripple">Enter Serenity</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <header class="hero text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-light text-teal">Your Hospital Bed Wellness Dashboard</h1>
+            <p class="lead text-muted fade-in">Breathe easy—real-time insights for better care. Refresh for serenity.</p>
+        </div>
+    </header>
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            {% for type, data in beds.items() %}
+                {% set percent = (data.available / data.max * 100) | int %}
+                {% set color_class = 'high' if percent > 70 else 'medium' if percent > 30 else 'low' %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg border-0 rounded-4 fade-in">
+                        <div class="card-body text-center p-4">
+                            <img src="{{ icons[type] }}" alt="{{ type }} icon" class="mb-3 spin-in" style="width: 80px; height: auto;">
+                            <h5 class="card-title fw-light text-teal">{{ type }} Beds</h5>
+                            <svg class="circular-chart mx-auto" viewBox="0 0 36 36">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle {{ color_class }}" stroke-dasharray="{{ percent }}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="percentage">{{ data.available }} / {{ data.max }}</text>
+                            </svg>
+                            <p class="text-muted small mt-2">Updated: {{ data.last_updated }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

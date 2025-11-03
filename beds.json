@@ -1,0 +1,5 @@
+{
+    "ICU": {"available": 5, "max": 20, "last_updated": "2023-01-01 00:00:00"},
+    "General": {"available": 20, "max": 50, "last_updated": "2023-01-01 00:00:00"},
+    "Oxygen": {"available": 10, "max": 30, "last_updated": "2023-01-01 00:00:00"}
+}
